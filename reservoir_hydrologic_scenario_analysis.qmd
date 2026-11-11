@@ -1,6 +1,6 @@
 ---
 title: "Reservoir Scenario Analysis"
-subtitle: "Upper and Lower Reservoir Inflow, Outflow, and Net FLow"
+subtitle: "Upper and Lower Reservoir Inflow, Outflow, and Net Flow"
 format:
   html:
     theme: cosmo
