@@ -26,8 +26,7 @@ lower_reservoir_sim_facet_grid <- inflow_outflow_dataset %>%
        x = "Date",
        y = "cfs") +
   theme_minimal() +
-  theme(
-    axis.text.x = element_blank())
+  theme(axis.text.x = element_blank())
 
 lower_reservoir_sim_facet_grid
 
@@ -41,8 +40,7 @@ upper_reservoir_sim_facet_grid <- inflow_outflow_dataset %>%
        x = "Date",
        y = "cfs") +
   theme_minimal() +
-  theme(
-    axis.text.x = element_blank())
+  theme(axis.text.x = element_blank())
 
 upper_reservoir_sim_facet_grid
 
@@ -73,8 +71,7 @@ upper_reservoir_mean <- inflow_outflow_dataset %>%
   summarise(
     mean_flow = mean(value),
     sd_flow = sd(value),
-    n = sum(value),
-    .groups = "drop") %>%
+    n = sum(value)) %>%
   mutate(
     lower_sd = mean_flow - sd_flow,
     upper_sd = mean_flow + sd_flow,
@@ -93,8 +90,7 @@ lower_reservoir_mean <- inflow_outflow_dataset %>%
   summarise(
     mean_flow = mean(value),
     sd_flow = sd(value),
-    n = sum(value),
-    .groups = "drop") %>%
+    n = sum(value)) %>%
   mutate(
     lower_sd = mean_flow - sd_flow,
     upper_sd = mean_flow + sd_flow,
@@ -147,10 +143,7 @@ upper_reservoir_balance <- inflow_outflow_dataset %>%
   geom_ribbon(aes(ymin = pmin(median_balance, 0), ymax = pmax(median_balance, 0), fill = median_balance >= 0), alpha = 0.5) +
   geom_line(aes(y = median_balance), linewidth = 0.75) +
   scale_fill_manual(
-    values = c(
-      "TRUE" = "#2f8a13",
-      "FALSE" = "#f32408"
-    )) +
+    values = c("TRUE" = "#2f8a13", "FALSE" = "#f32408")) +
   labs(title = "Reservoir Balance", y = "cfs") +
   xlab(element_blank()) + 
   theme(legend.position = "none")
@@ -205,10 +198,7 @@ lower_reservoir_balance <- inflow_outflow_dataset %>%
   geom_ribbon(aes(ymin = pmin(median_balance, 0), ymax = pmax(median_balance, 0), fill = median_balance >= 0), alpha = 0.5) +
   geom_line(aes(y = median_balance), linewidth = 0.75) +
   scale_fill_manual(
-    values = c(
-      "TRUE" = "#2f8a13",
-      "FALSE" = "#f32408"
-    )) +
+    values = c("TRUE" = "#2f8a13","FALSE" = "#f32408")) +
   labs(title = "Reservoir Balance", y = "cfs") +
   xlab(element_blank()) + 
   theme(legend.position = "none")
